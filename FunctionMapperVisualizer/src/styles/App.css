@@ -1,0 +1,337 @@
+/* ─── Global Reset ─────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a0d14;
+  color: #c8d4f0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ─── App Layout ───────────────────────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0a0d14;
+}
+
+/* ─── Header ───────────────────────────────────────────────────────────────── */
+.header {
+  padding: 18px 28px 14px;
+  border-bottom: 1px solid #1e2640;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #111520;
+}
+
+.header-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00e5ff, #b347ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  color: white;
+}
+
+.header-title {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #00e5ff, #b347ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-subtitle {
+  font-size: 11px;
+  color: #5a6a90;
+  margin-top: 1px;
+}
+
+/* ─── Main Body ────────────────────────────────────────────────────────────── */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+/* ─── Left Panel ───────────────────────────────────────────────────────────── */
+.panel {
+  width: 320px;
+  min-width: 280px;
+  background: #111520;
+  border-right: 1px solid #1e2640;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel-label {
+  font-size: 11px;
+  color: #5a6a90;
+  margin-bottom: 6px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.panel-divider {
+  height: 1px;
+  background: #1e2640;
+}
+
+/* ─── Inputs ───────────────────────────────────────────────────────────────── */
+.input-field {
+  width: 100%;
+  background: #0d1322;
+  border: 1px solid #1e2640;
+  border-radius: 6px;
+  color: #c8d4f0;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  margin-top: 4px;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #00e5ff;
+}
+
+select.input-field {
+  cursor: pointer;
+  appearance: none;
+}
+
+.hint-text {
+  font-size: 10px;
+  color: #5a6a90;
+  margin-top: 6px;
+}
+
+/* ─── Buttons ──────────────────────────────────────────────────────────────── */
+.btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 0;
+  background: transparent;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+  letter-spacing: 0.04em;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.btn-cyan  { border: 1px solid #00e5ff; color: #00e5ff; }
+.btn-cyan:hover  { background: #00e5ff22; }
+
+.btn-purple { border: 1px solid #b347ff; color: #b347ff; }
+.btn-purple:hover { background: #b347ff22; }
+
+.btn-green  { border: 1px solid #39ff14; color: #39ff14; }
+.btn-green:hover  { background: #39ff1422; }
+
+/* ─── Color Row ────────────────────────────────────────────────────────────── */
+.color-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.color-row input[type="color"] {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.color-row .btn {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* ─── Viewport Grid ────────────────────────────────────────────────────────── */
+.viewport-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.viewport-item label {
+  font-size: 10px;
+  color: #5a6a90;
+  display: block;
+  margin-bottom: 3px;
+}
+
+/* ─── Error Text ───────────────────────────────────────────────────────────── */
+.error-text {
+  color: #ff4466;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* ─── Right Side ───────────────────────────────────────────────────────────── */
+.right-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+/* ─── Canvas Wrapper ───────────────────────────────────────────────────────── */
+.canvas-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.canvas-wrap canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hover-coords {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: #0d1322cc;
+  border: 1px solid #1e2640;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-family: monospace;
+  color: #00e5ff;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.legend {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-line {
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.legend-text {
+  font-size: 10px;
+  font-family: monospace;
+}
+
+/* ─── Mapping Table ────────────────────────────────────────────────────────── */
+.table-area {
+  flex: 1;
+  padding: 14px 18px;
+  overflow-y: auto;
+  border-top: 1px solid #1e2640;
+}
+
+.table-label {
+  font-size: 11px;
+  color: #5a6a90;
+  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.map-row {
+  background: #161d30;
+  border: 1px solid #1e2640;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  transition: background 0.2s;
+}
+
+.map-row:hover {
+  background: #1e2845;
+}
+
+.map-name {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  min-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-chip {
+  background: #0d1322;
+  border: 1px solid #1e2640;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-family: monospace;
+  color: #c8d4f0;
+}
+
+.map-chip .chip-input {
+  color: #5a6a90;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ff4466;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 4px;
+  line-height: 1;
+  margin-left: auto;
+}
+
+.empty-msg {
+  color: #5a6a90;
+  font-size: 13px;
+  text-align: center;
+  padding: 30px;
+}
+
+/* ─── Footer ───────────────────────────────────────────────────────────────── */
+.footer {
+  background: #111520;
+  border-top: 1px solid #1e2640;
+  padding: 8px 24px;
+  font-size: 10px;
+  color: #5a6a90;
+  display: flex;
+  justify-content: space-between;
+}
